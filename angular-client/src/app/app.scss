@@ -1,0 +1,3 @@
+*, *::before, *::after { // apply accurate sizing to *all* elements in the app
+  box-sizing: border-box;
+}

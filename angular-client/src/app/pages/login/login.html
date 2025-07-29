@@ -1,0 +1,29 @@
+<div class="login-page">
+    <div class="login-container">
+        <div class="login-form-container">
+            <h1>GoChat</h1>
+            <h3>Login</h3>
+            <form class="login-fields" [formGroup]="loginForm">
+                <div class="login-field">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Username</mat-label>
+                        <input matInput type="text" [formControl]="loginForm.controls.username">
+                    </mat-form-field>
+                </div>
+
+                <div class="login-field">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" [formControl]="loginForm.controls.password">
+                    </mat-form-field>
+                </div>
+
+                <div class="login-buttons">
+                    <button mat-flat-button id="login-button" [disabled]="loadingLogin()" type="submit"
+                        (click)="login()">Log in</button> 
+                    <button mat-button id="register-button" [disabled]="loadingLogin()">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

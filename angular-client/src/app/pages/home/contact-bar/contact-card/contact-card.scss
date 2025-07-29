@@ -1,0 +1,15 @@
+.contact-card-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 10px;
+}
+
+#contact-profile-picture {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 100%;
+}
+
+.contact-card-info {
+    margin-left: 10px;
+}

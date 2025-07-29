@@ -1,0 +1,17 @@
+<main class="home-wrapper">
+    <aside class="options-ribbon">
+        <button mat-icon-button class="ribbon-button"><mat-icon>settings</mat-icon></button>
+        <button mat-icon-button class="ribbon-button"><mat-icon>settings</mat-icon></button>
+        <button mat-icon-button class="ribbon-button"><mat-icon>settings</mat-icon></button>
+    </aside>
+
+    <mat-sidenav-container class="sidenav-wrapper">
+    <mat-sidenav #contactBar class="contact-bar" mode="side">
+      <app-contact-bar />
+    </mat-sidenav>
+
+    <div class="chat-panel">
+      <app-chat-panel />
+    </div>
+  </mat-sidenav-container>
+</main>
