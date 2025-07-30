@@ -1,17 +1,22 @@
 <main class="home-wrapper">
-    <aside class="options-ribbon">
-        <button mat-icon-button class="ribbon-button"><mat-icon>settings</mat-icon></button>
-        <button mat-icon-button class="ribbon-button"><mat-icon>settings</mat-icon></button>
-        <button mat-icon-button class="ribbon-button"><mat-icon>settings</mat-icon></button>
-    </aside>
+  <aside class="options-ribbon">
+    <button mat-icon-button class="ribbon-button" (click)="toggleContactBar()">
+      <mat-icon>
+        @if (totalUnreadMessages()) { mark_chat_unread }
+        @else { chat_bubble }
+      </mat-icon>
+    </button>
+    <button mat-icon-button class="ribbon-button"><mat-icon>person_add</mat-icon></button>
+    <button mat-icon-button class="ribbon-button"><mat-icon>settings</mat-icon></button>
+  </aside>
 
-    <mat-sidenav-container class="sidenav-wrapper">
-    <mat-sidenav #contactBar class="contact-bar" mode="side">
+  <mat-sidenav-container class="sidenav-wrapper">
+    <mat-sidenav #contactBar [opened]="contactBarOpen()" class="contact-bar" mode="side">
       <app-contact-bar />
     </mat-sidenav>
 
     <div class="chat-panel">
-      <app-chat-panel />
+      <router-outlet />
     </div>
   </mat-sidenav-container>
 </main>

@@ -19,14 +19,14 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    justify-items: center;
-    width: 2%;
-    min-width: 50px;
+    width: 3%;
+    min-width: 60px;
+    border-radius: 0 10px 10px 0;
     background-color: firebrick;
-    overflow: hidden;
-
-    mat-icon {
-        color: white;
+    
+    .ribbon-button {
+        background-color: white;
+        margin: 10px;
     }
 }
 

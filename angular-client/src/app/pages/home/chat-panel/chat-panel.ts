@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './chat-panel.scss'
 })
 export class ChatPanel {
-
 }
