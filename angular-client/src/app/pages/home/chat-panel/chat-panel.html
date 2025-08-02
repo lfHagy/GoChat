@@ -1,1 +1,9 @@
-chat-panel is here
+<div class="chat-panel-wrapper">
+    <div class="chat-panel-header">
+        <h1 id="contact-name">John Doe</h1>
+    </div>
+    <div class="chat-wrapper">
+        <app-chat-bubble [message]="'hello'" type="'sent'" />
+        <app-chat-bubble [message]="'world'" type="'received'" />
+    </div>
+</div>

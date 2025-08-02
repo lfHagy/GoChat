@@ -1,0 +1,18 @@
+:host {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  word-break: break-word;
+  max-width: 70%;
+}
+
+:host(.sent) {
+  background-color: firebrick;
+  color: white;
+}
+
+:host(.received) {
+  background-color: white;
+  color: #000;
+}
