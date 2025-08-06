@@ -6,19 +6,12 @@
     background-color: whitesmoke;
 }
 
-.contact-bar {
-    width: 8%;
-    padding: 10px;
-    min-width: 300px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
 .options-ribbon {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     width: 3%;
+    max-height: 100vh;
     min-width: 60px;
     border-radius: 0 10px 10px 0;
     background-color: firebrick;
@@ -29,9 +22,23 @@
     }
 }
 
+.sidenav-wrapper {
+    width: 100%;
+}
+
+.contact-bar {
+    width: 8%;
+    padding: 10px;
+    min-width: 300px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-shadow: 5px 0 5px lightgray;
+}
+
 .chat-panel {
     flex: 1;
     height: 100vh;
     display: flex;
     flex-flow: column nowrap;
+    width: 100%;
 }

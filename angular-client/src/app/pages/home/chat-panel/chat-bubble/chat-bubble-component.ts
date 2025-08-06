@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'app-chat-bubble',
@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ChatBubbleComponent {
   @Input() message!: string;
-  @Input() type!: string;
+  @Input() type!: 'sent' | 'received';
 }

@@ -1,18 +1,18 @@
-:host {
-  display: inline-block;
-  padding: 8px 12px;
+div {
+  padding: 10px;
   border-radius: 8px;
-  font-size: 14px;
-  word-break: break-word;
   max-width: 70%;
+  word-wrap: break-word;
 }
 
-:host(.sent) {
+.sent {
+  background-color: white;
+  color: black;
+  align-self: flex-end;
+}
+
+.received {
   background-color: firebrick;
   color: white;
-}
-
-:host(.received) {
-  background-color: white;
-  color: #000;
+  align-self: flex-start;
 }
