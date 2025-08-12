@@ -4,6 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
+import { UserService } from '../../core/services/user-service';
 
 @Component({
   selector: 'app-login',
@@ -18,14 +19,12 @@ import { Router } from '@angular/router';
 })
 export class Login {
   private router = inject(Router);
+  userService = inject(UserService);
+  
   loadingLogin = signal(false);
 
   loginForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required, Validators.minLength(10)])
   });
-
-  login() {
-    this.router.navigate(["/home"]);
-  }
 };

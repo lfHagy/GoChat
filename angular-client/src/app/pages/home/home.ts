@@ -1,10 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ContactBar } from "./contact-bar/contact-bar";
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatBadgeModule } from '@angular/material/badge';
+import { UserService } from '../../core/services/user-service';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,9 @@ import { MatBadgeModule } from '@angular/material/badge';
 })
 export class Home {
   contactBarOpen = signal(true);
-  totalUnreadMessages = signal(1);
+  totalUnreadMessages = signal(1); // probably gonna stick this in a message and chat service
+
+  userService = inject(UserService);
 
   toggleContactBar() { // flip the bar signal
     this.contactBarOpen.set(!this.contactBarOpen());

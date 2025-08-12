@@ -20,7 +20,7 @@
 
                 <div class="login-buttons">
                     <button mat-flat-button id="login-button" [disabled]="loadingLogin()" type="submit"
-                        (click)="login()">Log in</button> 
+                        (click)="userService.login()">Log in</button> 
                     <button mat-button id="register-button" [disabled]="loadingLogin()">Register</button>
                 </div>
             </form>
