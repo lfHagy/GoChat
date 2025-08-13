@@ -1,5 +1,7 @@
-<app-contact-card (click)="navigateToChat()"/>
-<app-contact-card/>
-<app-contact-card/>
-
-<!-- TODO - this'll be a list that "grows by itself" as we fetch the contacts -->
+@if (contacts().length > 0) {
+  @for (contact of contacts(); track contact.id) {
+      <app-contact-card [user]="contact"/>
+  }
+} @else {
+    <h1>No contacts yet.</h1>
+}

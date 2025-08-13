@@ -2,11 +2,27 @@
     display: flex;
     flex-flow: row nowrap;
     padding: 10px;
+    border-radius: 20px;
+}
+
+.contact-card-wrapper:hover {
+    background-color: whitesmoke;
+}
+
+.contact-card-wrapper:active {
+    background-color: lightgray;
 }
 
 #contact-profile-picture {
     max-width: 80px;
     max-height: 80px;
+    border-radius: 100%;
+}
+
+#contact-profile-picture-status {
+    display: flex;
+    justify-items: center;
+    padding: 3px;
     border-radius: 100%;
 }
 

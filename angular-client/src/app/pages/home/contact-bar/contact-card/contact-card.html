@@ -1,9 +1,10 @@
-<span>
-    <div class="contact-card-wrapper">
-        <img src="https://placehold.co/80" id="contact-profile-picture"/>
-        <div class="contact-card-info">
-            <h3 matBadge="1">Name</h3>
-            <p>Description</p>
-        </div>
+<span class="contact-card-wrapper" (click)="navigateToChat()">
+    <div id="contact-profile-picture-status" [style.backgroundColor]="statusColors[user.status]" matBadge="1">
+        <img src="https://placehold.co/80" id="contact-profile-picture" />
+    </div>
+
+    <div class="contact-card-info">
+        <h3>{{ user.username }}</h3>
+        <p>{{ user.status }}</p>
     </div>
 </span>

@@ -3,10 +3,13 @@ import { UserInterface } from '../interfaces/user-interface';
 import { StatusEnum } from '../enums/status-enum';
 import { Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class UserService {
+  router = inject(Router);
+
+  currentUser = signal<UserInterface | null>(null);
+
+  // MOCK LOGIN — remove once backend is integrated
   mockLoggedUser: UserInterface = {
     id: "1",
     username: "Angular John",
@@ -14,18 +17,13 @@ export class UserService {
     status: StatusEnum.Online
   }
 
-  router = inject(Router);
-
-  currentUser = signal<UserInterface | null>(null);
-
-
   login() {
     this.currentUser.set(this.mockLoggedUser);
-    console.log("logged user has username ", this.currentUser()?.username);
-    this.router.navigate(['/home'])
+    console.log("Logged in user:", this.currentUser()?.username);
+    this.router.navigate(['/home']);
   }
 
-  logout() { // TODO - add a dialogue to confirm if the user wants to logout
+  logout() {
     this.router.navigate([""]);
   }
 }

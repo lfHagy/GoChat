@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject, OnInit } from '@angular/core';
 import { ContactCard } from './contact-card/contact-card';
-import { Router } from '@angular/router';
+import { ContactsService } from '../../../core/services/contacts-service';
 
 @Component({
   selector: 'app-contact-bar',
@@ -8,10 +8,13 @@ import { Router } from '@angular/router';
   templateUrl: './contact-bar.html',
   styleUrl: './contact-bar.scss'
 })
-export class ContactBar {
-  router = inject(Router);
+export class ContactBar implements OnInit {
+  contactsService = inject(ContactsService);
 
-  navigateToChat() {
-    this.router.navigate(["/home/chat"]); // when we have proper chat ids, navigate to home/chat/id
+  contacts = this.contactsService.contacts;
+
+  ngOnInit() {
+    this.contactsService.fetchContacts();
   }
 }
+
