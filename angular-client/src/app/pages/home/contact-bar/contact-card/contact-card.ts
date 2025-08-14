@@ -1,8 +1,8 @@
 import { Component, inject, Input } from '@angular/core';
 import { MatBadgeModule } from '@angular/material/badge';
 import { Router } from '@angular/router';
-import { UserInterface } from '../../../../core/interfaces/user-interface';
 import { StatusEnum } from '../../../../core/enums/status-enum';
+import { ContactInterface } from '../../../../core/interfaces/contact-interface';
 
 @Component({
   selector: 'app-contact-card',
@@ -11,7 +11,7 @@ import { StatusEnum } from '../../../../core/enums/status-enum';
   styleUrl: './contact-card.scss'
 })
 export class ContactCard {
-  @Input() user!: UserInterface;
+  @Input() user!: ContactInterface;
 
   router = inject(Router);
 

@@ -3,6 +3,6 @@ export interface MessageInterface {
     chatId: string;
     senderId: string;
     text: string;
-    timestamp: number;
+    timestamp: Date;
     status?: 'sent' | 'delivered' | 'read';
 }
