@@ -1,6 +1,6 @@
 @if (contacts().length > 0) {
   @for (contact of contacts(); track contact.id) {
-      <app-contact-card [user]="contact"/>
+      <app-contact-card [contact]="contact"/>
   }
 } @else {
     <h1>No contacts yet.</h1>

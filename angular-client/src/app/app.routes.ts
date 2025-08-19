@@ -13,8 +13,8 @@ export const routes: Routes = [
         component: Home,
         children: [
             {
-                path: "chat",
-                component: ChatPanel
+                path: 'chat/:id',
+                component: ChatPanel,
             }
         ]
     }

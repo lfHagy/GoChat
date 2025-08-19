@@ -1,5 +1,8 @@
-import { Injectable } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { ChatInterface } from '../interfaces/chat-interface';
+import { ContactsService } from './contacts-service';
+import { UserService } from './user-service';
+import { MessageInterface } from '../interfaces/message-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -54,4 +57,19 @@ export class ChatService {
     }
   ];
 
+  private readonly contactsService = inject(ContactsService);
+  private readonly userService = inject(UserService);
+
+  currentChat = signal<ChatInterface | null>(null);
+
+  getChat(userId: string, contactId: string): ChatInterface | null {
+    console.log("got chat!");
+    return (
+      this.mockChats.find(
+        chat =>
+          chat.participants.includes(userId) &&
+          chat.participants.includes(contactId)
+      ) ?? null
+    );
+  }
 }

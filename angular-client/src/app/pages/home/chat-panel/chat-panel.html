@@ -1,13 +1,17 @@
 <div class="chat-panel-wrapper">
     <div class="chat-panel-header">
-        <h1 id="contact-name">John Doe</h1>
-    </div>
-    <div class="chat-wrapper">
-        <app-chat-bubble message="hello" type="sent" class="sent"></app-chat-bubble>
-        <app-chat-bubble message="world" type="received" class="received"></app-chat-bubble>
+        <h1 id="contact-name">{{ selectedContact()?.username }}</h1>
     </div>
 
-    <div class="chat-text-bar">
-        <input type="text" id="textInput">
+    <div class="chat-wrapper">
+        @for (msg of currentChat()?.messages; track msg.id) {
+        <app-chat-bubble
+            [message]="msg.text"
+            [type]="msg.isSent ? 'sent' : 'received'"
+            [timestamp]="msg.timestamp" />
+        }
+        <div class="chat-text-bar">
+            <input type="text" id="textInput">
+        </div>
     </div>
 </div>

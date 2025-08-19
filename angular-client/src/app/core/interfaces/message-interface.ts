@@ -5,4 +5,5 @@ export interface MessageInterface {
     text: string;
     timestamp: Date;
     status?: 'sent' | 'delivered' | 'read';
+    isSent?: boolean;
 }

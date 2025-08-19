@@ -6,6 +6,7 @@ import { ContactInterface } from '../interfaces/contact-interface';
 @Injectable({ providedIn: 'root' })
 export class ContactsService {
   contacts = signal<ContactInterface[]>([]);
+  selectedContact = signal<ContactInterface | null>(null);
 
   // MOCK DATA — remove once backend is integrated
   private mockUsers: ContactInterface[] = [

@@ -1,12 +1,14 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-chat-bubble',
-  imports: [],
+  imports: [ DatePipe ],
   templateUrl: './chat-bubble-component.html',
   styleUrl: './chat-bubble-component.scss'
 })
 export class ChatBubbleComponent {
   @Input() message!: string;
   @Input() type!: 'sent' | 'received';
+  @Input() timestamp!: Date;
 }
