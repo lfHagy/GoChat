@@ -12,9 +12,9 @@ export class ContactBar implements OnInit {
   contactsService = inject(ContactsService);
 
   contacts = this.contactsService.contacts;
+  selectedContact = this.contactsService.selectedContact;
 
   ngOnInit() {
     this.contactsService.fetchContacts();
   }
 }
-

@@ -1,4 +1,4 @@
-div {
+.chat-bubble {
   padding: 10px;
   border-radius: 8px;
   max-width: 70%;
@@ -8,11 +8,11 @@ div {
 .sent {
   background-color: white;
   color: black;
-  align-self: flex-end;
+  border-radius: 8px 8px 0 8px;
 }
 
 .received {
   background-color: firebrick;
   color: white;
-  align-self: flex-start;
+  border-radius: 8px 8px 8px 0;
 }

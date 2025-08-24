@@ -1,17 +1,23 @@
 <div class="chat-panel-wrapper">
+    @if (isLoadingChatPanel) {
+    <div class="spinner-container">
+        <mat-spinner />
+    </div>
+    } @else {
     <div class="chat-panel-header">
         <h1 id="contact-name">{{ selectedContact()?.username }}</h1>
     </div>
 
     <div class="chat-wrapper">
+
         @for (msg of currentChat()?.messages; track msg.id) {
-        <app-chat-bubble
-            [message]="msg.text"
-            [type]="msg.isSent ? 'sent' : 'received'"
-            [timestamp]="msg.timestamp" />
+        <app-chat-bubble class="{{ msg.isSent ? 'sent' : 'received' }}" [message]="msg.text"
+            [type]="msg.isSent ? 'sent' : 'received'" [timestamp]="msg.timestamp" />
         }
-        <div class="chat-text-bar">
-            <input type="text" id="textInput">
-        </div>
     </div>
+
+    <div class="chat-text-bar">
+        <input type="text" id="textInput">
+    </div>
+    }
 </div>

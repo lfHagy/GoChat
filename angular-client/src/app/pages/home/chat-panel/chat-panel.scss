@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 100%;
   overflow: hidden;
   background-color: whitesmoke;
 }
@@ -16,15 +17,23 @@
   z-index: 1;
 }
 
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
 .chat-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   overflow-y: auto;
+  overflow-x: hidden;
   height: 100%;
-  padding: 10px;
-  gap: 5px;
-  overflow: auto; // make sure we can scroll through messages
+  padding: 0 10px 0 10px;
+  gap: 5px; // make sure we can scroll through messages
 
   .sent {
     align-self: flex-end;
@@ -34,7 +43,6 @@
     align-self: flex-start;
   }
 }
-
 
 .chat-text-bar {
   width: 100%;
