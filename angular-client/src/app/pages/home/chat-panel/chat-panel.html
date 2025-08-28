@@ -17,7 +17,10 @@
     </div>
 
     <div class="chat-text-bar">
-        <input type="text" id="textInput">
+        <div class="chat-input-container">
+            <input type="text" id="textInput" [formControl]="messageInputControl" (keydown.enter)="sendMessage()" autocomplete="off">
+            <button (click)="sendMessage()" class="chat-button"><mat-icon fontIcon="sos" /></button>
+        </div>
     </div>
     }
 </div>

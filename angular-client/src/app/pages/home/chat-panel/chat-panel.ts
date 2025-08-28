@@ -1,17 +1,22 @@
 import { Component, effect, inject, } from '@angular/core';
 import { ChatBubbleComponent } from "./chat-bubble/chat-bubble-component";
-import { UserService } from '../../../core/services/user-service';
 import { ChatService } from '../../../core/services/chat-service';
 import { ContactsService } from '../../../core/services/contacts-service';
-import { ChatInterface } from '../../../core/interfaces/chat-interface';
 import { Router } from '@angular/router';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-chat-panel',
   imports: [
     ChatBubbleComponent,
-    MatProgressSpinner
+    MatProgressSpinner,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatIconModule
   ],
   templateUrl: './chat-panel.html',
   styleUrl: './chat-panel.scss'
@@ -25,6 +30,7 @@ export class ChatPanel {
   currentChat = this.chatService.currentChat;
 
   isLoadingChatPanel = true;
+  messageInputControl = new FormControl('');
 
   constructor() {
     effect(() => {
@@ -41,6 +47,12 @@ export class ChatPanel {
   }
 
   sendMessage() {
-    console.log("sent a message!"); // TODO
+    console.warn("message is ", this.messageInputControl.value)
+    let text = this.messageInputControl.value?.trim();
+    console.log("trimmed text to ", text)
+    if (text) {
+      this.chatService.sendMessage(text); // send the message if it's valid
+      this.messageInputControl.reset();
+    }
   }
 }

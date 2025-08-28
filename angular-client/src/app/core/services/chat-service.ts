@@ -59,10 +59,10 @@ export class ChatService {
 
   private readonly contactsService = inject(ContactsService);
   private readonly userService = inject(UserService);
-  // update the signal
+
   currentChat = signal<ChatInterface | null>(null);
 
-  getChat(userId: string, contactId: string): ChatInterface | null {
+  getChat(userId: string, contactId: string) {
     console.log("got chat!");
     const chat =
       this.mockChats.find(
@@ -77,8 +77,26 @@ export class ChatService {
         isSent: msg.senderId === userId // to avoid showing any actual ids, we'll assign arbitrary ids
       })); // and then determine whether it was sent or received by comparing the ids 
       this.currentChat.set(chat);
-    } // TODO - if there are no messages/chats between the two users, show the appropriate screen
+    } else {
+      this.currentChat.set(null);
+    }
+  }
 
-    return chat;
+  sendMessage(text: string) {
+    const chat = this.currentChat();
+
+    if (chat) {
+      const newMessage = { // backend'll handle everything from id to timestamp
+        id: 'temp-' + Date.now(), // all we'll need to send is the message and the token
+        chatId: chat!.id,
+        senderId: "1",
+        text,
+        timestamp: new Date(),
+        isSent: true
+      };
+
+      chat.messages = [...chat.messages, newMessage];
+      this.currentChat.set(chat);
+    }
   }
 }
